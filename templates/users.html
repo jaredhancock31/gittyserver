@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Users</title>
+</head>
+<body>
+<form action="/home">
+    <input type="submit" value="home">
+</form>
+<form action="/users">
+    <input type="submit" value="users">
+</form>
+<form action="/bug">
+    <input type="submit" value="bugs">
+</form>
+<form action="/tag">
+    <input type="submit" value="tags">
+</form>
+<form action="/logout">
+    <input type="submit" value="logout">
+</form>
+<h1> Users </h1>
+<ul><!-- unordered list -->
+    {% for u in users %}
+        <li><a href="/users/{{ u.userId }}">{{ u.uName }}</a></li>
+    {% endfor %}
+</ul>
+</body>
+</html>

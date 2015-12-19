@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Changes for {{ bid }}</title>
+</head>
+<body>
+<h2>
+    Change Log for Bug # <a href="/bug/{{ bid }}">{{ bid }}</a>
+</h2>
+<br>
+<ul><!-- unordered list -->
+   {% for c in changes %}
+       <li>
+           <p> Created by User <a href="/users/{{c.uid}}">{{ c.uid }}</a> <br>
+               On {{ c.date }} <br><br>
+
+               {{ c.desc }}
+           </p>
+       </li>
+   {% endfor %}
+</ul>
+
+
+</body>
+</html>

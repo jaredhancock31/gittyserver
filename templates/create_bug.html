@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Submit a bug</title>
+</head>
+<body>
+    <div>
+        <h2>Submit a bug</h2>
+        <form action="/home/submit_bug" METHOD="post">
+{#        <input name="username" type="text" width="100" placeholder="URL"><br>#}
+        <input name="title" type="text" width="300" placeholder="Title"><br><br>
+        <textarea name="details" rows="10" cols="50" placeholder="Description"></textarea><br>
+        <input name="tags" type="text" width="100" placeholder="#tags (no spaces)"><br>
+        <input name="assignee" type="text" style="width: 300px;" placeholder="assign user(i.e., kdunn0)"><br>
+        <input type="submit" name="action" value="Submit">
+        </form>
+    </div>
+
+
+</body>
+</html>

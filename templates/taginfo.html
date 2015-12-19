@@ -1,0 +1,29 @@
+<!doctype html>
+<html>
+<head>
+   <title>Tag: {{ word }}</title>
+</head>
+<body>
+<form action="/home">
+    <input type="submit" value="home">
+</form>
+<form action="/users">
+    <input type="submit" value="users">
+</form>
+<form action="/bug">
+    <input type="submit" value="bugs">
+</form>
+<form action="/tag">
+    <input type="submit" value="tags">
+</form>
+<form action="/logout">
+    <input type="submit" value="logout">
+</form>
+<h1>Tag: {{ word }}</h1>
+<ul><!-- unordered list -->
+   {% for t in tags %}
+       <li><a href="/bug/{{ t.bugid }}">Bug #{{ t.bugid }}</a>: {{ t.title }}</li>
+   {% endfor %}
+</ul>
+</body>
+</html>

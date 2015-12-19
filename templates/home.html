@@ -1,0 +1,72 @@
+<!doctype html>
+<html>
+<head>
+    <title>Project Database</title>
+</head>
+<body>
+<form action="/home">
+    <input type="submit" value="home">
+</form>
+<form action="/users">
+    <input type="submit" value="users">
+</form>
+<form action="/bug">
+    <input type="submit" value="bugs">
+</form>
+<form action="/home/submit_bug">
+    <input type="submit" value="Submit a bug">
+</form>
+<form action="/tag">
+    <input type="submit" value="tags">
+</form>
+<form action="/logout">
+    <input type="submit" value="logout">
+</form>
+<h1>Project Database</h1>
+<p>Welcome, {{uName}}. These are the bugs you are assigned, have created
+    and are subscribed to.</p>
+    <br>
+    <h3>Mentions</h3>
+        <ul>
+            {% for m in mentions %}
+                {% if m is not none %}
+                    <li><a href="/bug/{{ m.bid }}">{{ m.text }}</a></li>
+                {% else %}
+                    <p>No mentions yet</p>
+                {% endif %}
+            {% endfor %}
+        </ul>
+    <h3>Bugs assigned</h3>
+       <ul>
+           {% for bug in assigned %}
+           {% if bug.bid is not none%}
+           <li><a href="/bug/{{bug.bid}}">{{bug.title}}</a></li>
+           {% else %}
+           <a href="/bug/">None</a>
+           {% endif %}
+           {% endfor %}
+       </ul>
+        <br>
+        <br>
+       <h3>Bugs Created</h3>
+       <ul>
+           {% for bug in created %}
+           {% if bug.bid is not none%}
+           <li><a href="/bug/{{bug.bid}}">{{bug.title}}</a></li>
+           {% else %}
+           <a href="/bug/">None</a>
+           {% endif %}
+           {% endfor %}
+       </ul>
+        <h3>Bugs Subscribed</h3>
+       <ul>
+           {% for bug in subscribed %}
+           {% if bug.bid is not none%}
+           <li><a href="/bug/{{bug.bid}}">{{bug.title}}</a></li>
+           {% else %}
+           <a href="/bug/">None</a>
+           {% endif %}
+           {% endfor %}
+       </ul>
+</body>
+</html>

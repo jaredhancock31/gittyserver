@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <title>{{ user.uName }}</title>
+</head>
+<body>
+<form action="/home">
+    <input type="submit" value="home">
+</form>
+<form action="/users">
+    <input type="submit" value="users">
+</form>
+<form action="/bug">
+    <input type="submit" value="bugs">
+</form>
+<form action="/tag">
+    <input type="submit" value="tags">
+</form>
+<form action="/logout">
+    <input type="submit" value="logout">
+</form>
+   <div>
+       <h1>{{ user.name }}</h1>
+   </div>
+   <div>
+       <h3>Bugs assigned</h3>
+       <ul>
+           {% for bug in assigned %}
+           {% if bug.bid is not none%}
+           <li><a href="/bug/{{bug.bid}}">{{bug.title}}</a></li>
+           {% else %}
+           <a href="/bug/">None</a>
+           {% endif %}
+           {% endfor %}
+       </ul>
+   </div>
+   <div>
+       <h3>Bugs Created</h3>
+       <ul>
+           {% for bug in created %}
+           {% if bug.bid is not none%}
+           <li><a href="/bug/{{bug.bid}}">{{bug.title}}</a></li>
+           {% else %}
+           <a href="/bug/">None</a>
+           {% endif %}
+           {% endfor %}
+       </ul>
+
+   </div>
+
+</body>
+</html>

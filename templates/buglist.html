@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>List of Bugs</title>
+</head>
+<body>
+<form action="/home">
+    <input type="submit" value="home">
+</form>
+<form action="/users">
+    <input type="submit" value="users">
+</form>
+<form action="/bug">
+    <input type="submit" value="bugs">
+</form>
+<form action="/tag">
+    <input type="submit" value="tags">
+</form>
+<form action="/logout">
+    <input type="submit" value="logout">
+</form>
+<h1>List of Bugs</h1>
+    {% for bug in list_bug %}
+    <ul><li><a href="/bug/{{bug.bug_id}}">{{bug.title}}</a></li></ul>
+    {% endfor %}
+</body>
+</html>

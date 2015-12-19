@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>{{bugs.bug_id}}</title>
+</head>
+<body>
+<form action="/home">
+    <input type="submit" value="home">
+</form>
+<form action="/users">
+    <input type="submit" value="users">
+</form>
+<form action="/bug">
+    <input type="submit" value="bugs">
+</form>
+<form action="/tag">
+    <input type="submit" value="tags">
+</form>
+<form action="/logout">
+    <input type="submit" value="logout">
+</form>
+<form action="/subscribe">
+    <input type="submit" value="subscribe to bug">
+</form>
+
+<h3>{{bugs.title}}</h3>
+<p>Created by:<a href="/users/{{bugs.user_id}}">{{bugs.creator}}</a> on {{bugs.creation_date}}, <br> Assigned to:<a href="/users/{{assigneeID}}">{{bugs.assignee}}</a></p>
+<br>
+<p>Details: {{bugs.details}}</p>
+<br>
+<p>Closed on: {{bugs.close_date}}</p>
+<br>
+
+<a href="/bug/clog/{{ bugs.bug_id }}">Change Log</a>
+<br>
+<br>
+<p>Comments:</p>
+<form action="/home/add_comment" METHOD="post">
+<textarea name="comment" rows="10" cols="50" placeholder="Comment"></textarea><br>
+   <textarea name="bid" hidden>{{bugs.bug_id}}</textarea>
+<input name="mentions" type="text" style="width: 300px;" placeholder="Mention user(s) (i.e. kdunn0,jhan)"><br>
+<input type="submit" name="action" value="Submit Comment">
+</form>
+
+<ul><!-- unordered list -->
+   {% for c in comments %}
+       <li>
+           <p> Posted By User: <a href="/users/{{c.author}}">{{ c.user }}</a> <br>
+               Date: {{ c.date }} <br><br>
+
+               {{ c.text }}
+           </p>
+       </li>
+   {% endfor %}
+</ul>
+</body>
+</html>
